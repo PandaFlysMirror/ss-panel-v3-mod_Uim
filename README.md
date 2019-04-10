@@ -73,5 +73,7 @@ debian
 </code></pre>
 回车即可，至此面板安装完成
 
-<img src="https://tc.233fq.tk/images/2019/04/10/AT3lRK96262de34ba36081.png"/>
-<img src="https://tc.233fq.tk/images/2019/04/10/AT3QG64c62ed7c2f57bff0.png"/>
+<!-- <img src="https://tc.233fq.tk/images/2019/04/10/AT3lRK96262de34ba36081.png"/>
+<img src="https://tc.233fq.tk/images/2019/04/10/AT3QG64c62ed7c2f57bff0.png"/> -->
+<img src="https://s2.ax1x.com/2019/04/10/ATJ8MT.png" alt="">
+<img src="https://s2.ax1x.com/2019/04/10/ATJ1zV.png" alt="">
