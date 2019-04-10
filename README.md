@@ -1,108 +1,77 @@
-# 欢迎使用ss panel v3 mod 再次修改版
+测试环境 CentOS 7.5 X64
+<h3>ssh工具下载</h3>
+<a title="" href="https://www.putty.org/" data-original-title="">putty</a>
 
+<a title="" href="https://xshell.en.softonic.com/" data-original-title="">xshell</a>
+<h3>连接vps，并安装宝塔面板</h3>
+centos
+<pre><code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh
+</code></pre>
+ubuntu
+<pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+</code></pre>
+debian
+<pre><code>wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
+</code></pre>
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i1/O1CN019tgI7k1HIfcjjEGUs_!!2-rate.png" width="605" height="500" />
+输入y并回车，进行安装
+稍等片刻，安装完成会生成宝塔面板登录地址和账号密码，注意保存<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i3/O1CN01jiPBSv1HIfciDYuL2_!!2-rate.png" width="646" height="484" />
 
-**ss-panel-v3-mod**是一款专为shadowsocks设计的web前端面板，再次感谢ss-panel-v3-mod 的制作者，修改后的功能简介：
+登录进去后会让你选择安装环境，安装LNMP环境，注意PHP版本选择7.1。
 
-- **支付系统集成**：集成 支付宝当面付  易付通 码支付 TrimePay 等多种支付系统，使用方法见项目[wiki](https://github.com/NimaQu/ss-panel-v3-mod_Uim/wiki/)
-- **UI** ：修改为 ~~援交~~ 圆角、并自定义了几个图标的显示，节点列表等級0可见等級1节点但无法看见节点详情，增加了国家图标显示
-- **商店**：商品增加同时连接设备数，用户限速属性
-- 从肥羊那里**抄**来的：新用户注册现金奖励|高等级节点体验|设备数量限制
-- **优化**：css和js等置入本地提升加载速度
-- 增加**v2Ray** 功能，详情请看 [wiki](https://github.com/NimaQu/ss-panel-v3-mod_Uim/wiki/v2ray-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01XHsOx11HIfchrkxwz_!!2-rate.png" width="653" height="411" />
 
-Telegram 频道 ：https://t.me/sspanel_Uim 
+大约等待30分钟(每个人机器性能不一样，有快有慢)
+环境安装好后，添加一个站点(首页-网站-添加)，绑定你的域名/ip：
 
-演示站: [demo.nimaqu.com](https://demo.nimaqu.com) 账号和密码都是 admin  对接节点的 mukey=NimaQu
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01Dci8FY1HIfcjjTuOL_!!2-rate.png" width="1023" height="555" />
 
-**原作者** [galaxychuck](https://github.com/galaxychuck)
+记住你的这个站点路径，回到putty/xhell中，进入到你的站点目录内：
+<pre><code>cd /www/wwwroot/你的站点域名</code></pre>
+下载面板程序
+<pre><code>git clone -b master https://github.com/miaocloud/ss-panel-v3-mod_Uim.git tmp &amp;&amp; mv tmp/.git . &amp;&amp; rm -rf tmp &amp;&amp; git reset --hard
+</code></pre>
+回到宝塔面板中，点击站点设置，添加伪静态规则：
+<pre><code>location / {
+                        try_files $uri $uri/ /index.php$is_args$args;
+                }</code></pre>
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i4/O1CN01NplezW1HIfcfexG1u_!!2-rate.png" width="1172" height="630" />
 
-[支持开发者请点我](https://github.com/NimaQu/ss-panel-v3-mod_UIM#%E5%85%B3%E4%BA%8E%E6%8D%90%E8%B5%A0)
+接着点击网站目录，取消防跨站攻击(open_basedir)并将运行目录改为/public并点击保存
 
-## 搭建教程
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01ALxvfb1HIfckLl7C2_!!2-rate.png" width="652" height="544" />
 
-GitHub Wiki : https://github.com/NimaQu/ss-panel-v3-mod_Uim/wiki/%E5%89%8D%E7%AB%AF%E5%AE%89%E8%A3%85
+找到你的站点根目录下找到storage目录，点击如图按钮修改权限：<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i3/O1CN01DMgwTQ1HIfcffLYhH_!!2-rate.png" width="1307" height="472" />
 
-Wiki已经启用，欢迎为此面板维护wiki
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01NyTQSo1HIfcj64Gqo_!!2-rate.png" width="397" height="250" />
 
-#### 鸣谢
+在文件中打开sql目录并下载glzjin_all.sql<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01G7caZc1HIfcjlCmrp_!!2-rate.png" width="1334" height="510" />
 
-##### [galaxychuck](https://github.com/galaxychuck)
+在下载完成后，点击数据库，并导入所下载的glzjin_all.sql
 
-- 面板**原作者**
+<img class="alignnone size-medium" src="https://img.alicdn.com/bao/uploaded/i2/O1CN01UsZegz1HIfcj6fCJl_!!2-rate.png" width="604" height="266" /><img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/1323a32040768ca05b.png" width="596" height="265" /><img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/146e8e90d1445eced5.png" width="605" height="267" />
 
-##### [hkserversolution](https://www.hkserversolution.com/cart.php)
-- Demo 演示站服务器赞助
+更改数据库权限为所有人
 
-##### [dumplin](https://github.com/dumplin233) 
+<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/15f8ca38b756f81ff1.png" width="1340" height="503" />
 
-- 码支付对接 + 码支付当面付二合一
-- 为面板加入 AFF 链接功能
-- 商品增加限速和限制 ip 属性
-- 多端口订阅
-- 解决用户列表加载缓慢历史遗留问题
+打开文件，进入config目录，将.config.php.example重命名为.config.php<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/1670811b8b7f849b3b.png" width="1309" height="478" />
 
-##### [RinSAMA](https://github.com/mxihan)
+填写你的站点名字、域名、数据库地址、数据库名、数据库用户名以及数据库密码：<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/17d8f3a1bd7fd0b789.png" width="887" height="318" />
 
-- 整理分类 config.php
-- 美观性调整
-- 客服系统优化
+确认无误后保存，
 
-##### [miku](https://github.com/xcxnig)
+回到putty/xshell中，并在你的站点根目录内执行下面的命令开始安装依赖
+<pre><code>cd /www/wwwroot/你的网站根目录</code></pre>
+<pre><code>php composer.phar install
+</code></pre>
+添加管理员账号
+<pre><code>php -n xcat createAdmin
+</code></pre>
+管理员账号创建完成后，现在来同步一下用户数据：
+<pre><code>php xcat syncusers
+</code></pre>
+回车即可，至此面板安装完成
 
-- 美观和性能优化
-
-##### [Tony Zou](https://github.com/ZJY2003)
-
-- 为公告增加群发邮件功能
-- 节点负载情况显示&用户账户过期在首页弹窗提醒
-- 增加返利列表
-
-[**Indexyz**](https://github.com/Indexyz)
-
-- 为面板增加 v2Ray 功能
-
-[**NeverBehave**](https://github.com/NeverBehave)
-
-- 添加 Telegram OAuth
-
-[**CGDF**](https://github.com/CGDF-GitHub)
-
-- 一键国旗
-- 财务报表
-- xcat一键update
-- 适配SSD
-- 用户列表分页加载
-
-[**CHEN**](https://github.com/ChenSee)
-
-- 免签约支付宝与微信，自带监听，不需第三方软件，直接到个人账户
-
-[**laurieryayoi**](https://github.com/laurieryayoi)
-
-- 重做美化UI（~~援交~~圆角化）
-
-- 重写节点列表，支持分级显示所有级别节点
-
-##### 还有所有被引用过代码的同学，以及所有提交过issue的同学。
-
-#### 关于捐赠
-
-您对我们的帮助将是支持我们做下去的动力，只需您在购买部分产品或向他人推荐产品时从我们的返利链接购买，这就是对我们很大的支持了。~~没有钱了，肯定要做啊，不做没有钱用啊，打工是不可能打工的，这辈子不可能打工的~~
-
-##### dumplin
-
-- [码支付-微信收款功能开通](https://codepay.fateqq.com/i/39756)
-
-
-
-##### galaxychuck
-
-- [黛米付-支付接入](https://www.daimiyun.cn/register.php?aff=624)
-- [冲上云霄云主机](http://console.soar-clouds.com/aff.php?aff=94)
-- [Vultr](https://www.vultr.com/?ref=7205737)
-
-[Nymph 的前端课程报名](t.me/kinokonominoco)
-
-# 免责声明
-
-本程序由 MIT License 授权。**不提供任何担保**。使用本程序即表明，您知情并同意：程序开发者不对此程序导致的任何服务中断、数据损失或任何少见未列出的事故负责。
+<img src="https://tc.233fq.tk/images/2019/04/10/AT3lRK96262de34ba36081.png"/>
+<img src="https://tc.233fq.tk/images/2019/04/10/AT3QG64c62ed7c2f57bff0.png"/>
