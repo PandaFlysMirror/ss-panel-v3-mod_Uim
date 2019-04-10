@@ -53,11 +53,14 @@ debian
 
 更改数据库权限为所有人
 
-<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/15f8ca38b756f81ff1.png" width="1340" height="503" />
+<!-- <img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/15f8ca38b756f81ff1.png" width="1340" height="503" /> -->
+<img src="https://www.jqwebs.com/wp-content/uploads/2019/01/15.png" alt="">
 
-打开文件，进入config目录，将.config.php.example重命名为.config.php<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/1670811b8b7f849b3b.png" width="1309" height="478" />
+打开文件，进入config目录，将.config.php.example重命名为.config.php<!-- <img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/1670811b8b7f849b3b.png" width="1309" height="478" /> -->
+<img src="https://www.jqwebs.com/wp-content/uploads/2019/01/16.png" alt="">
 
-填写你的站点名字、域名、数据库地址、数据库名、数据库用户名以及数据库密码：<img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/17d8f3a1bd7fd0b789.png" width="887" height="318" />
+填写你的站点名字、域名、数据库地址、数据库名、数据库用户名以及数据库密码：<!-- <img class="alignnone size-medium" src="https://tc.233fq.tk/images/2019/04/10/17d8f3a1bd7fd0b789.png" width="887" height="318" /> -->
+<img src="https://www.jqwebs.com/wp-content/uploads/2019/01/17.png" alt="">
 
 确认无误后保存，
 
